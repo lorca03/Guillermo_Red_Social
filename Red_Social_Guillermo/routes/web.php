@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Image;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +14,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Route::get('/', function () {
+//    return view('pages.index');
+//});
 Route::get('/', function () {
-    return view('index');
+    $images=Image::all();
+    foreach ($images as $image){
+        echo '<img src="'.$image->image_path.'">'.' <br> ';
+        echo $image->user->name.'/'.$image->user->surname.' <br> ';
+    }
+    die();
+    return view('welcome');
 });
 Route::get('/sign-up', function () {
-    return view('sign-up');
+    return view('pages.sign-up');
 });
 Route::get('/log-in', function () {
-    return view('log-in');
+    return view('pages.log-in');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 });

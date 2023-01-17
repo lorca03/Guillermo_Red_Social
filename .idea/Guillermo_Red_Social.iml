@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/bacon/bacon-qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/mobiledetect/mobiledetectlib" />
+      <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/laravel/fortify" />
+      <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/laravel/jetstream" />
+      <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/dasprid/enum" />
+      <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/jaybizzle/crawler-detect" />
+      <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/jenssegers/agent" />
+      <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/paragonie/constant_time_encoding" />
+      <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/pragmarx/google2fa" />
+      <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/livewire/livewire" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
