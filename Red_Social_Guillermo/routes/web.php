@@ -18,19 +18,13 @@ use Illuminate\Support\Facades\Route;
 //    return view('pages.index');
 //});
 Route::get('/', function () {
-    $images=Image::all();
-    foreach ($images as $image){
-        echo '<img src="'.$image->image_path.'">'.' <br> ';
-        echo $image->user->name.'/'.$image->user->surname.' <br> ';
-    }
-    die();
-    return view('welcome');
-});
-Route::get('/sign-up', function () {
-    return view('pages.sign-up');
-});
-Route::get('/log-in', function () {
-    return view('pages.log-in');
+//    $images=Image::all();
+//    foreach ($images as $image){
+//        echo '<img src="'.$image->image_path.'">'.' <br> ';
+//        echo $image->user->name.'/'.$image->user->surname.' <br> ';
+//    }
+//    die();
+    return view('/pages.index');
 });
 
 Route::middleware([
@@ -42,3 +36,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+require_once 'fortify.php';
