@@ -90,9 +90,16 @@
                     <a class="nav-link page-scroll" href="#pricing">PRICING</a>
                 </li>
             </ul>
-            <span class="nav-item">
+            @auth
+                <span class="nav-item">
+                    <a class="btn-outline-sm" href="dashboard">Dashboard</a>
+                </span>
+            @endauth
+            @guest
+                <span class="nav-item">
                     <a class="btn-outline-sm" href="login">LOG IN</a>
                 </span>
+            @endguest
         </div>
     </div> <!-- end of container -->
 </nav> <!-- end of navbar -->

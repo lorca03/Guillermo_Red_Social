@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImageController;
 use App\Models\Image;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,10 @@ Route::get('/', function () {
 //    die();
     return view('/pages.index');
 });
-
+Route::middleware('auth')->group(function (){
+    Route::get('/subir_imagen', [ImageController::class,'index']);
+    Route::get('/save_imagen', [ImageController::class,'save'])->name('save.iamge');
+});
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
