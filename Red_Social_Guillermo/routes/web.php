@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Home;
 use App\Http\Controllers\ImageController;
 use App\Models\Image;
 use Illuminate\Support\Facades\Route;
@@ -28,17 +29,16 @@ Route::get('/', function () {
     return view('/pages.index');
 });
 Route::middleware('auth')->group(function (){
-    Route::get('/subir_imagen', [ImageController::class,'index']);
-    Route::get('/save_imagen', [ImageController::class,'save'])->name('save.iamge');
+    Route::get('/subir_imagen', [ImageController::class,'index'])->name('subir.imagen');
+    Route::post('/save_imagen', [ImageController::class,'save'])->name('save.image');
 });
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [Home::class,'index']
+    )->name('dashboard');
 });
 
 require_once 'fortify.php';

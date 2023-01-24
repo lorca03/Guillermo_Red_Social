@@ -35,10 +35,10 @@ return [
             'root' => storage_path('app'),
             'throw' => false,
         ],
-        'images' => [
+        'imagenes' => [
             'driver' => 'local',
-            'root' => storage_path('app/images'),
-            'url' => env('APP_URL').'/images',
+            'root' => storage_path('app/imagenes'),
+            'url' => env('APP_URL').'/imagenes',
             'visibility' => 'public',
             'throw' => false,
         ],
@@ -77,7 +77,8 @@ return [
     */
 
     'links' => [
-        public_path('storage') => storage_path('app/public'),
+       // public_path('storage') => storage_path('app/public'),
+        public_path('imagenes') => storage_path('app/imagenes'),
     ],
 
 ];
