@@ -22,6 +22,7 @@ class CommentFactory extends Factory
         return [
             'user_id'=>$user_id,
             'image_id'=>$image_id,
+            'content'=>$faker->text(20),
             'created_at' => $faker->dateTimeBetween('-1 year', 'now'),
             'updated_at' => $faker->dateTimeBetween('-1 year', 'now'),
         ];

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentarioController;
 use App\Http\Controllers\Home;
 use App\Http\Controllers\ImageController;
 use App\Models\Image;
@@ -16,21 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('pages.index');
-//});
 Route::get('/', function () {
-//    $images=Image::all();
-//    foreach ($images as $image){
-//        echo '<img src="'.$image->image_path.'">'.' <br> ';
-//        echo $image->user->name.'/'.$image->user->surname.' <br> ';
-//    }
-//    die();
     return view('/pages.index');
 });
 Route::middleware('auth')->group(function (){
     Route::get('/subir_imagen', [ImageController::class,'index'])->name('subir.imagen');
     Route::post('/save_imagen', [ImageController::class,'save'])->name('save.image');
+    Route::post('/save_comentario', [CommentarioController::class,'save'])->name('save.comentario');
 });
 Route::middleware([
     'auth:sanctum',
