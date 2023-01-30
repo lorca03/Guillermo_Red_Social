@@ -19,4 +19,9 @@ class CommentarioController extends Controller
         $comment->save();
         return redirect()->route('dashboard');
     }
+    public function delete(Request $request){
+        $comentarioID=$request->input('commentID');
+        Comment::where('id',$comentarioID)->delete();
+        return redirect()->route('dashboard');
+    }
 }

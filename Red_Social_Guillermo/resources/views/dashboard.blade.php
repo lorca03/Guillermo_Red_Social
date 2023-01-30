@@ -12,7 +12,9 @@
                     <labe>{{$image->user->name.'/@'.$image->user->user_name }}</labe>
                     <img style="width: 380px" src="{{'imagenes/'.$image->image_path}}" alt="No carga">
                     <labe>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $image->created_at)->longRelativeDiffForHumans()}}</labe>
-                    <labe>Commentarios --> {{count($image->comments)}} <button class="text-indigo-500 hover:underline" type="submit">Ver todos</button> </labe>
+                    <labe>Commentarios --> {{count($image->comments)}}
+                        <a class="text-indigo-500 hover:underline" href="img_detalle/{{$image->id}}">Ver todos</a>
+                    </labe>
                     <br>
                     <form method="POST" class="flex" action="{{ route('save.comentario') }}">
                         @csrf

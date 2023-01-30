@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function (){
     Route::get('/subir_imagen', [ImageController::class,'index'])->name('subir.imagen');
     Route::post('/save_imagen', [ImageController::class,'save'])->name('save.image');
     Route::post('/save_comentario', [CommentarioController::class,'save'])->name('save.comentario');
+    Route::get('/img_detalle/{id}', [ImageController::class,'detalle']);
+    Route::post('/delete_comentario', [CommentarioController::class,'delete'])->name('delete.comentario');
 });
 Route::middleware([
     'auth:sanctum',
