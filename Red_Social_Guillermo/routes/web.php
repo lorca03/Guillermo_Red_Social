@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommentarioController;
 use App\Http\Controllers\Home;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\PerfilController;
 use App\Models\Image;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,7 @@ Route::middleware('auth')->group(function (){
     Route::post('/save_comentario', [CommentarioController::class,'save'])->name('save.comentario');
     Route::get('/img_detalle/{id}', [ImageController::class,'detalle']);
     Route::post('/delete_comentario', [CommentarioController::class,'delete'])->name('delete.comentario');
+    Route::get('/perfil',[PerfilController::class,'index'])->name('perfil');
 });
 Route::middleware([
     'auth:sanctum',
