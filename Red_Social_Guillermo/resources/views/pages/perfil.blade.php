@@ -21,7 +21,9 @@
                     <h1 class="text-2xl">Imagenes <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">{{count($images)}}</span></h1>
                     <div class="mt-3 flex items-center justify-center">
                         @foreach($images as $image)
-                            <img src="{{'imagenes/'.$image->image_path}}" alt="No carga" class="w-100"> <br>
+                            <div class="border-indigo-500 border-2 rounded-lg p-2 w-36 h-36 m-1 flex items-center justify-center">
+                                <img src="{{'imagenes/'.$image->image_path}}" alt="No carga" class="w-32 h-32">
+                            </div>
                         @endforeach
                     </div>
                 </div>
