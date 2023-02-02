@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommentarioController;
 use App\Http\Controllers\Home;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PerfilController;
 use App\Models\Image;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,11 @@ Route::middleware('auth')->group(function (){
     Route::get('/img_detalle/{id}', [ImageController::class,'detalle']);
     Route::post('/delete_comentario', [CommentarioController::class,'delete'])->name('delete.comentario');
     Route::get('/perfil',[PerfilController::class,'index'])->name('perfil');
+    Route::get('/like/{id}', [LikeController::class,'like'])->name('like');
+    Route::get('/dislike/{id}', [LikeController::class,'dislike']);
+    Route::get('/prueba', function (){
+        return view('pages.prueba');
+    });
 });
 Route::middleware([
     'auth:sanctum',
