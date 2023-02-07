@@ -16,11 +16,12 @@
                          alt="No carga">
                     <div class="flex mb-4">
                         <div class="flex justify-center items-center flex-col">
-                            <labe>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $image->created_at)->longRelativeDiffForHumans()}}</labe>
-                            <labe>Commentarios --> {{count($image->comments)}}
+                            <label>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $image->created_at)->longRelativeDiffForHumans()}}</label>
+                            <label>Commentarios --> {{count($image->comments)}}
                                 <a class="text-indigo-500 hover:underline" href="img_detalle/{{$image->id}}">Ver
                                     todos</a>
-                            </labe>
+                            </label>
+                            <label id="nuevoComent{{$image->id}}"></label>
                         </div>
                         <div class="ml-10">
                             @if(count($image->likes)>0)
@@ -43,6 +44,12 @@
                         <input type="hidden" value="{{$image->id}}" name="imagenCommentario">
                         <input class="bg-indigo-500 rounded-lg p-2 ml-1 text-white" type="submit" value="Comentar">
                     </form>
+
+                    {{--                    <div  class="flex">--}}
+                    {{--                        <textarea placeholder="Que piensas?" name="comentario{{$image->id}}" cols="25" rows="1"></textarea>--}}
+                    {{--                        --}}{{--                    <input type="hidden" value="{{$image->id}}" name="imagenCommentario">--}}
+                    {{--                        <input onclick="comentar(this)" id="{{$image->id}}.{{\Auth::user()->id}}" class="bg-indigo-500 rounded-lg p-2 ml-1 text-white" type="submit" value="Comentar">--}}
+                    {{--                    </div>--}}
                     <br>
                     <hr class="w-48 h-1 border-0 mb-3 rounded dark:bg-gray-700" style="background-color: indigo">
                 @endforeach
