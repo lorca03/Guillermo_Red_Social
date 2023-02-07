@@ -16,9 +16,9 @@ class LikeController extends Controller
         $like->save();
         return redirect()->route('dashboard');
     }
-    public function dislike($idLike)
+    public function dislike($idfoto)
     {
-        Like::where('id',$idLike)->delete();
+        Like::where('image_id',$idfoto)->delete();
         return redirect()->route('dashboard');
     }
 }

@@ -31,9 +31,6 @@ Route::middleware('auth')->group(function (){
     Route::get('/perfil',[PerfilController::class,'index'])->name('perfil');
     Route::get('/like/{id}', [LikeController::class,'like'])->name('like');
     Route::get('/dislike/{id}', [LikeController::class,'dislike']);
-    Route::get('/prueba', function (){
-        return view('pages.prueba');
-    });
 });
 Route::middleware([
     'auth:sanctum',
