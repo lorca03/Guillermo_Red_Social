@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Image;
+use App\Models\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -51,6 +53,8 @@ class ImageController extends Controller
     }
     public function delete(Request $request){
         $imageID=$request->input('imageID');
+        Like::where('image_id',$imageID)->delete();
+        Comment::where('image_id',$imageID)->delete();
         Image::where('id',$imageID)->delete();
         return redirect()->route('perfil');
     }
