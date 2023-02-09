@@ -1,12 +1,19 @@
 function hola(event) {
+    let countNombre='count'+event.alt
+    console.log(countNombre)
+    let count=document.getElementById(countNombre)
     if (event.id == 'like') {
         fetch('http://redsocial.local.com/dislike/' + event.alt)
         event.src = 'images/favoritoNo.png'
         event.id = 'Nolike'
+        let number=parseInt(count.textContent);
+        count.textContent=number-1
     } else {
         fetch('http://redsocial.local.com/like/' + event.alt)
         event.src = 'images/favorito.png'
         event.id = 'like'
+        let number=parseInt(count.textContent);
+        count.textContent=number+1
     }
 }
 

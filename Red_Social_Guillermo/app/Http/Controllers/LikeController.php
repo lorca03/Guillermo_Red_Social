@@ -18,7 +18,7 @@ class LikeController extends Controller
     }
     public function dislike($idfoto)
     {
-        Like::where('image_id',$idfoto)->delete();
+        Like::where('image_id',$idfoto)->where('user_id',\Auth::user()->id)->delete();
         return redirect()->route('dashboard');
     }
 }

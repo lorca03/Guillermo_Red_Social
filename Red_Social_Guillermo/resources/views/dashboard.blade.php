@@ -17,6 +17,7 @@
                     <div class="flex mb-4">
                         <div class="flex justify-center items-center flex-col">
                             <label>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $image->created_at)->longRelativeDiffForHumans()}}</label>
+                            <label>Likes --> <span id="count{{$image->id}}">{{count($image->likes)}}</span></label>
                             <label>Commentarios --> {{count($image->comments)}}
                                 <a class="text-indigo-500 hover:underline" href="img_detalle/{{$image->id}}">Ver
                                     todos</a>
@@ -25,7 +26,7 @@
                         </div>
                         <div class="ml-10">
                             @if(count($image->likes)>0)
-                                @if($image->user_id==\Auth::user()->id)
+                                @if(!$image->likes->where('user_id',\Auth::user()->id)->isEmpty())
                                     <img class="w-14" onclick="hola(this)" id="like" src="images/favorito.png"
                                          alt="{{$image->id}}">
                                 @else
