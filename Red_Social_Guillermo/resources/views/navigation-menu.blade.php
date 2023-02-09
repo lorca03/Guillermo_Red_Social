@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{ route('subir.imagen') }}" :active="request()->routeIs('subir.imagen')">
                         {{ __('Subir Imagen') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('usuarios') }}" :active="request()->routeIs('usuarios')">
+                        {{ __('Usuarios') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

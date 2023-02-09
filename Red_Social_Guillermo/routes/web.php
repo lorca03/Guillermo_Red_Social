@@ -5,6 +5,7 @@ use App\Http\Controllers\Home;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\UserController;
 use App\Models\Image;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,9 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function (){
     Route::get('/subir_imagen', [ImageController::class,'index'])->name('subir.imagen');
     Route::post('/save_imagen', [ImageController::class,'save'])->name('save.image');
+    Route::get('/usuarios', [UserController::class,'gente'])->name('usuarios');
+    Route::get('/usuarios/{user}', [UserController::class,'userPerfil'])->name('usuarios.perfil');
+    Route::get('/search', [UserController::class,'search'])->name('usuarios.search');
     Route::post('/save_comentario', [CommentarioController::class,'save'])->name('save.comentario');
     Route::get('/img_detalle/{id}', [ImageController::class,'detalle']);
     Route::post('/delete_comentario', [CommentarioController::class,'delete'])->name('delete.comentario');
