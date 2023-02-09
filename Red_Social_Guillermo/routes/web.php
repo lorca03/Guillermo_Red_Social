@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function (){
     Route::get('/img_detalle/{id}', [ImageController::class,'detalle']);
     Route::post('/delete_comentario', [CommentarioController::class,'delete'])->name('delete.comentario');
     Route::get('/perfil',[PerfilController::class,'index'])->name('perfil');
+    Route::post('/delete_image',[ImageController::class,'delete'])->name('delete.image');
     Route::get('/like/{id}', [LikeController::class,'like'])->name('like');
     Route::get('/dislike/{id}', [LikeController::class,'dislike']);
 });

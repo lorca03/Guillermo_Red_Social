@@ -10,7 +10,8 @@ class PerfilController extends Controller
     public function index()
     {
         $user = \Auth::user();
-        $images=Image::where('user_id',$user->id)->get();
+        $images=Image::where('user_id',$user->id)
+            ->orderBy('created_at','desc')->get();
         return view('pages.perfil',['images'=>$images,'user'=>$user]);
     }
 }

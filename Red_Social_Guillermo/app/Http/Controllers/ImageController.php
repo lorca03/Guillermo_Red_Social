@@ -49,4 +49,9 @@ class ImageController extends Controller
         $image=Image::where('id',$id)->first();
         return view('pages.detalleImg',['image'=>$image]);
     }
+    public function delete(Request $request){
+        $imageID=$request->input('imageID');
+        Image::where('id',$imageID)->delete();
+        return redirect()->route('perfil');
+    }
 }
