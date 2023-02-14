@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    protected function userPerfil($user)
+    protected function userPerfil($userID)
     {
-        return view('pages.userPerfil',['user'=>$user]);
+        $user=User::where('id',$userID)->get();
+        $images=Image::where('user_id',$userID)->get();
+        return view('pages.userPerfil',['user'=>$user[0],'images'=>$images]);
     }
     protected function gente()
     {
