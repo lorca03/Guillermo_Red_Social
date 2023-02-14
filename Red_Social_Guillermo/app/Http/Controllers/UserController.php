@@ -16,8 +16,10 @@ class UserController extends Controller
     }
     protected function gente()
     {
-        $users=User::all();
-        return view('pages.users',['users'=>$users]);
+        $users=User::orderBy('created_at','desc')->get();
+        $friends=\Auth::user()->getFriends();
+        $pending=\Auth::user()->getPendingFriendships();
+        return view('pages.users',['users'=>$users,'friends'=>$friends,'pending'=>$pending]);
     }
     protected function search(Request $request)
     {
@@ -27,4 +29,12 @@ class UserController extends Controller
             ->orWhere('surname', 'like', '%'.$buscar.'%')->get();
         return view('pages.users',['users'=>$users]);
     }
+    protected function send(Request $request)
+    {
+        $recipient=$request->input('recipient');
+        $recipient=User::all()->find($recipient);
+        \Auth::user()->befriend($recipient);
+       return $this->gente();
+    }
+
 }

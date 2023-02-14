@@ -120,6 +120,7 @@
       <path value="$PROJECT_DIR$/Red_Social_Guillermo/vendor/paragonie/constant_time_encoding" />
       <path value="$PROJECT_DIR$/Red_Social_Guillermo/vendor/pragmarx/google2fa" />
       <path value="$PROJECT_DIR$/Red_Social_Guillermo/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/Red_Social_Guillermo/vendor/hootlex/laravel-friendships" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />

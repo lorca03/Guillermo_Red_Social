@@ -12,6 +12,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/paragonie/constant_time_encoding" />
       <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/pragmarx/google2fa" />
       <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/livewire/livewire" />
+      <excludeFolder url="file://$MODULE_DIR$/Red_Social_Guillermo/vendor/hootlex/laravel-friendships" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

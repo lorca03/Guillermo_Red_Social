@@ -15,11 +15,27 @@
             </div>
             <div class="bg-white overflow-hidden w-1/2 shadow-xl shadow-indigo-500/40 sm:rounded-lg p-5 ">
                 @foreach($users as $user)
-                    <hr><br>
-                    <img class="w-11" src="{{'storage/'.$user->profile_photo_path}}" alt="Sin">
-                    <h1>{{$user->name}} {{$user->surname}}  <a class="text-indigo-500" href="usuarios/{{$user->id}}"><span>@</span>{{$user->user_name}}</a></h1>
+                    <hr>
+                    <div class="flex items-center p-3 justify-around">
+                        <div>
+                            <img class="w-14" src="{{'storage/'.$user->profile_photo_path}}" alt="Sin imagen">
+                            <h1>{{$user->name}} {{$user->surname}}  <a class="text-indigo-500" href="usuarios/{{$user->id}}"><span>@</span>{{$user->user_name}}</a></h1>
+                        </div>
+                        @if($friends->find($user->id))
+                            Amigo
+                        @elseif($pending->where('recipient_id', $user->id)->count() > 0)
+                            Pending...
+                        @elseif($user->id!=\Auth::user()->id)
+                            <div>
+                                <form action="{{ route('send.friend') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" value="{{$user->id}}" name="recipient">
+                                    <button class="bg-indigo-500 text-white p-2 rounded-2xl">Send friend request</button>
+                                </form>
+                            </div>
+                        @endif
+                    </div>
                 @endforeach
-
             </div>
         </div>
     </div>
