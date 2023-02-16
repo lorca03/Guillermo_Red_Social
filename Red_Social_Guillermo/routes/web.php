@@ -30,6 +30,9 @@ Route::middleware('auth')->group(function (){
     Route::get('/usuarios/{user}', [UserController::class,'userPerfil'])->name('usuarios.perfil');
     Route::get('/search', [UserController::class,'search'])->name('usuarios.search');
     Route::post('/save_comentario', [CommentarioController::class,'save'])->name('save.comentario');
+    Route::post('/cancel_friend', [UserController::class,'cancel'])->name('cancelar.amistad');
+    Route::post('/acept_friend', [UserController::class,'aceptar'])->name('aceptar.amistad');
+    Route::post('/denegar_friend', [UserController::class,'denegar'])->name('denegar.amistad');
     Route::post('/sendFriend', [UserController::class,'send'])->name('send.friend');
     Route::get('/img_detalle/{id}', [ImageController::class,'detalle']);
     Route::post('/delete_comentario', [CommentarioController::class,'delete'])->name('delete.comentario');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -36,5 +37,28 @@ class UserController extends Controller
         \Auth::user()->befriend($recipient);
        return $this->gente();
     }
-
+    protected function cancel(Request $request)
+    {
+        $recipient=$request->input('recipient');
+        $sender=$request->input('sender');
+        DB::table('friendships')
+            ->where('recipient_id',$recipient)
+            ->where('sender_id',$sender)
+        ->delete();
+        return $this->gente();
+    }
+    protected function aceptar(Request $request)
+    {
+        $senderid=$request->input('sender');
+        $sender=User::all()->find($senderid);
+        \Auth::user()->acceptFriendRequest($sender);
+        return $this->gente();
+    }
+    protected function denegar(Request $request)
+    {
+        $senderid=$request->input('sender');
+        $sender=User::all()->find($senderid);
+        \Auth::user()->denyFriendRequest($sender);
+        return $this->gente();
+    }
 }

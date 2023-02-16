@@ -24,15 +24,29 @@
                     <div class="col">
                         @foreach($peticiones as $peticion)
                             @if($peticion->recipient_id === \Auth::user()->id)
-                                <button class="bg-green-400 text-white p-2">
-                                    Aceptar {{$users->find($peticion->sender_id)->name}}</button>
-                                <button class="bg-red-500 text-white p-2">
-                                    Denegar {{$users->find($peticion->sender_id)->name}}</button>
+                                <form action="{{ route('aceptar.amistad') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" value="{{$peticion->sender_id}}" name="sender">
+                                    <button class="bg-green-400 text-white p-2">
+                                        Aceptar {{$users->find($peticion->sender_id)->name}}</button>
+                                </form>
+                                <form action="{{ route('denegar.amistad') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" value="{{$peticion->sender_id}}" name="sender">
+                                    <button class="bg-red-500 text-white p-2">
+                                        Denegar {{$users->find($peticion->sender_id)->name}}</button>
+                                </form>
                             @endif
-                                <br>
+                            <br>
                             @if($peticion->sender_id === \Auth::user()->id)
-                                <button class="bg-gray-900 text-white p-2">
-                                    Cancelar amistad {{$users->find($peticion->recipient_id)->name}}</button>
+                                <form action="{{ route('cancelar.amistad') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" value="{{$peticion->recipient_id}}" name="recipient">
+                                    <input type="hidden" value="{{$peticion->sender_id}}" name="sender">
+                                    <button class="bg-gray-900 text-white p-2">
+                                        Cancelar amistad {{$users->find($peticion->recipient_id)->name}}</button>
+                                </form>
+
                             @endif
                         @endforeach
                     </div>
