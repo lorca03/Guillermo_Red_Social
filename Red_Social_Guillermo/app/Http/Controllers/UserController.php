@@ -28,7 +28,9 @@ class UserController extends Controller
         $users=User::where('name', 'like', '%'.$buscar.'%')
             ->orWhere('user_name', 'like', '%'.$buscar.'%')
             ->orWhere('surname', 'like', '%'.$buscar.'%')->get();
-        return view('pages.users',['users'=>$users]);
+        $friends=\Auth::user()->getFriends();
+        $pending=\Auth::user()->getPendingFriendships();
+        return view('pages.users',['users'=>$users,'friends'=>$friends,'pending'=>$pending]);
     }
     protected function send(Request $request)
     {

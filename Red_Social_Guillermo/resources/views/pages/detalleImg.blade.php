@@ -17,8 +17,12 @@
                     @foreach($image->comments as $comment)
                         <form method="POST" action="{{ route('delete.comentario') }}">
                             @csrf
-                            <li>{{$comment->content}} <input class="bg-indigo-500 rounded-lg p-2 ml-1 text-white"
-                                                             type="submit" value="Eliminar"></li>
+                            <li>{{$comment->content}}
+                            @if($comment->user_id==\Auth::id())
+                             <input class="bg-indigo-500 rounded-lg p-2 ml-1 text-white"
+                                                             type="submit" value="Eliminar">
+                            @endif
+                            </li>
                             <input type="hidden" name="commentID" value="{{$comment->id}}">
                             <br>
                         </form>
