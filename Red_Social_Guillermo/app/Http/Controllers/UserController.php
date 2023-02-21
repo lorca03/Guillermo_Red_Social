@@ -13,7 +13,8 @@ class UserController extends Controller
     {
         $user=User::where('id',$userID)->get();
         $images=Image::where('user_id',$userID)->get();
-        return view('pages.userPerfil',['user'=>$user[0],'images'=>$images]);
+        $friends=$user[0]->getFriends();
+        return view('pages.userPerfil',['user'=>$user[0],'images'=>$images,'friends'=>$friends]);
     }
     protected function gente()
     {

@@ -17,6 +17,10 @@
                         <label class="ml-5">{{$user->email}}</label>
                     </div>
                 </div><hr class="h-1 bg-indigo-500 border-0 rounded">
+                <div class=" m-4 grid grid-flow-col auto-cols-max flex items-center justify-around">
+                    <div class="col"><span>Friends - {{count($friends)}}</span></div>
+                </div>
+                <hr class="h-1 bg-indigo-500 border-0 rounded">
                 <div class="mt-3 flex-col flex items-center justify-center">
                     <h1 class="text-2xl">Imagenes <span class="bg-purple-100 text-purple-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">{{count($images)}}</span></h1>
                     <div class="mt-3 flex items-center justify-center flex-wrap">
