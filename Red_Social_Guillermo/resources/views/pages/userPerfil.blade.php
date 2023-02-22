@@ -18,7 +18,7 @@
                     </div>
                 </div><hr class="h-1 bg-indigo-500 border-0 rounded">
                 <div class=" m-4 grid grid-flow-col auto-cols-max flex items-center justify-around">
-                    <div class="col"><span>Friends - {{count($friends)}}</span></div>
+                    <div class="col"><span class="">Friends - {{count($friends)}}</span></div>
                 </div>
                 <hr class="h-1 bg-indigo-500 border-0 rounded">
                 <div class="mt-3 flex-col flex items-center justify-center">

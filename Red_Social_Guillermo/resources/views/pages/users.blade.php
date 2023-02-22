@@ -23,7 +23,10 @@
                         </div>
                         @if($friends->find($user->id))
                             Amigo
-                        @elseif($pending->where('recipient_id', $user->id)->count() > 0)
+                        @elseif($pending->where('sender_id', $user->id)->count() > 0 && $user->id!==\Auth::id())
+                            Te ha enviado una petición. <br>
+                            Ves a tu perfil.
+                        @elseif($pending->where('recipient_id', $user->id)->count() > 0 && $user->id!==\Auth::id())
                             Pending...
                         @elseif($user->id!=\Auth::user()->id)
                             <div>

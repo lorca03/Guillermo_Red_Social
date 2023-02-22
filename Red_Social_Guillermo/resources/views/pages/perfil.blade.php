@@ -20,7 +20,14 @@
                 </div>
                 <hr class="h-1 bg-indigo-500 border-0 rounded">
                 <div class=" m-4 grid grid-flow-col auto-cols-max flex items-center justify-around">
-                    <div class="col"><span>Friends - {{count($friends)}}</span></div>
+                    <div class="col">
+                        <span class="border-indigo-500 border-2 rounded-lg p-2" onclick="document.getElementById('friends').style.display='block'">Friends - {{count($friends)}}</span><br>
+                        <ol class="mt-3" id="friends" style="display: none">
+                            @foreach($friends as $friend)
+                                <li>{{$friend->name}}</li>
+                            @endforeach
+                        </ol>
+                    </div>
                     <div class="col">
                         @foreach($peticiones as $peticion)
                             @if($peticion->recipient_id === \Auth::user()->id)
